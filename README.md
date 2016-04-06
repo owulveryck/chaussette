@@ -1,7 +1,11 @@
 # chaussette
 Tiny socket utility (in go)
 
-`go get github.com/owulveryck/chaussette`
+```shell
+> go get -d github.com/owulveryck/chaussette
+> cd $GOPATH/src/github.com/owulveryck/chaussette
+> make
+```
 
 # usage
 
