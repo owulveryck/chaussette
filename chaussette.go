@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"log"
 	"net"
@@ -9,12 +10,24 @@ import (
 	"strings"
 )
 
+var Builddate = "No build date provided"
+var Githash = "No githasg provided"
+
 func usage(name string) {
 	fmt.Printf("Usage: %s [unix|tcp]:[/path/to/socket|ip:port]\n", os.Args[0])
-
+	fmt.Printf("Build date:%s\n", Builddate)
+	fmt.Printf("Githash:%s\n", Githash)
 }
 
 func main() {
+
+	version := flag.Bool("version", false, "Print current version")
+	flag.Parse()
+	if *version {
+		fmt.Printf("Build date:%s\n", Builddate)
+		fmt.Printf("Githash:%s\n", Githash)
+		os.Exit(0)
+	}
 
 	if len(os.Args) != 2 {
 		usage(os.Args[0])
